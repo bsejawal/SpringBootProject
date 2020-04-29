@@ -4,7 +4,7 @@ http://localhost:8080/db
 
 toGet All Person
 /persons GET method
-output:
+Response:
 [
     {
         "id": 1,
@@ -31,3 +31,53 @@ output:
         "email": "netra.sejawal@gmail.com"
     }
 ]
+
+to get a single Person
+/person/{id} GET method
+Response:
+{
+    "id": 1,
+    "name": "Bhesh",
+    "address": "5881 Vista Dr",
+    "email": "bsejawal@gmail.com"
+}
+
+
+to Create a Person
+/person POST method
+request:
+{
+    "id": 1,
+    "name": "Bhesh",
+    "address": "5881 Vista Dr",
+    "email": "bsejawal@gmail.com"
+}
+Response: 
+{
+    "id": 1,
+    "name": "Bhesh",
+    "address": "5881 Vista Dr",
+    "email": "bsejawal@gmail.com"
+}
+
+to Update Person
+/person/{id} PUT method
+Request:
+{
+    "id": 1,
+    "name": "Bhesh",
+    "address": "5881 Vista Dr",
+    "email": "bsejawal@gmail.com"
+}
+Response:
+{
+    "id": 1,
+    "name": "Bhesh",
+    "address": "5881 Vista Dr",
+    "email": "bsejawal@gmail.com"
+}
+
+To Delete Person
+/person/{id} DELETE method
+Response code should be 200
+
