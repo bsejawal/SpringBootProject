@@ -23,19 +23,20 @@ public class PersonResource {
 
     @GetMapping(value = "/persons")
     public List<Person> all(){
+        System.out.println("PersonResource.all => change test : 0");
         return (List<Person>) personRepository.findAll();
     }
-    @GetMapping(value = "/person/{id}")
+    @GetMapping(value = "/persons/{id}")
     public Person one(@PathVariable(value="id") Long id){
         return personRepository.findById(id).orElse(null);
     }
 
     //person?name=bhesh
-    @GetMapping(value = "/person")
+    @GetMapping(value = "/persons/{name}")
     public Person person(@RequestParam(value="name") String name){
         return personRepository.findByName(name).orElse(null);
     }
-    @PutMapping(value = "/person/{id}")
+    @PutMapping(value = "/persons/{id}")
     public Person replacePerson(@RequestBody Person newPerson, @PathVariable(value = "id") Long id){
         return personRepository.findById(id)
                 .map(person -> {
@@ -48,12 +49,12 @@ public class PersonResource {
                     return personRepository.save(newPerson);
                 });
     }
-    @DeleteMapping(value = "/person/{id}")
+    @DeleteMapping(value = "/persons/{id}")
     public void delete(@PathVariable(name = "id") Long id){
         personRepository.deleteById(id);
     }
 
-    @PostMapping(value = "/person")
+    @PostMapping(value = "/persons")
     public Person newPerson(@RequestBody Person person){
         personRepository.save(person);
         return person;
