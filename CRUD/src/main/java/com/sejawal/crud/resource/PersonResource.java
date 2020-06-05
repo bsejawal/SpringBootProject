@@ -32,10 +32,10 @@ public class PersonResource {
     }
 
     //person?name=bhesh
-    @GetMapping(value = "/persons/{name}")
-    public Person person(@RequestParam(value="name") String name){
-        return personRepository.findByName(name).orElse(null);
-    }
+//    @GetMapping(value = "/persons/{name}")
+//    public Person person(@RequestParam(value="name") String name){
+//        return personRepository.findByName(name).orElse(null);
+//    }
     @PutMapping(value = "/persons/{id}")
     public Person replacePerson(@RequestBody Person newPerson, @PathVariable(value = "id") Long id){
         return personRepository.findById(id)
@@ -55,7 +55,7 @@ public class PersonResource {
     }
 
     @PostMapping(value = "/persons")
-    public Person newPerson(@RequestBody Person person){
+    public Person add(@RequestBody Person person){
         personRepository.save(person);
         return person;
 
